@@ -2,7 +2,10 @@ package Transport.Air;
 
 import Transport.Transport;
 
+import java.util.Scanner;
+
 public class Airplane extends Transport implements AirTransport {
+    Scanner sc = new Scanner(System.in);
 
     double maxPeople;
     boolean isMilitary;
@@ -13,19 +16,25 @@ public class Airplane extends Transport implements AirTransport {
 
     public void setMaxPeople(double maxPeople) {
         System.out.print("Enter max people places: ");
-        this.maxPeople = maxPeople;
+        this.maxPeople = sc.nextDouble();
     }
 
-    public void setMilitary(boolean military) {
-        System.out.println("Enter military or not");    //TODO: Grammar enter to this ind another
-        this.isMilitary = isMilitary;
+    public void setMilitary(boolean isMilitary) {
+        System.out.println("Enter military or not");
+
+        String military = sc.nextLine();
+
+        if (military.equalsIgnoreCase("Да"))
+            this.isMilitary = true;
+        else if (military.equalsIgnoreCase("Нет"))
+            this.isMilitary = false;
+
     }
 
     @Override
     public void displayInfo() {
         System.out.printf("Type: %s\n Title: %s\n Public: %s\n" +
-                "How much people can place: %s\n", getType(), getName(), isPublic(),
-                maxPeople);
+                "How much people can place: %s\n", getType(), getName(), isPublic(), maxPeople);
     }
 
     @Override

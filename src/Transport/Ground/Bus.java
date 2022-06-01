@@ -2,7 +2,10 @@ package Transport.Ground;
 
 import Transport.Transport;
 
+import java.util.Scanner;
+
 public class Bus extends Transport implements GroundTransport {
+    Scanner sc = new Scanner(System.in);
 
     double fare;
     int maxPeople;
@@ -14,17 +17,17 @@ public class Bus extends Transport implements GroundTransport {
 
     public void setFare(double fare) {
         System.out.print("Enter fare per human: ");
-        this.fare = fare;
+        this.fare = sc.nextDouble();
     }
 
     public void setMaxPeople(int maxPeople) {
         System.out.print("Enter amount of max people places: ");
-        this.maxPeople = maxPeople;
+        this.maxPeople = sc.nextInt();
     }
 
     public void setTrackNumber(String trackNumber) {
         System.out.print("Enter track number: ");
-        this.trackNumber = trackNumber;
+        this.trackNumber = sc.nextLine();
     }
 
     @Override

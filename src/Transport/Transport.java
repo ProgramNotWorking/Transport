@@ -1,6 +1,6 @@
 package Transport;
 
-public class Transport {
+abstract public class Transport {
 
     String type;
     String name;

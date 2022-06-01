@@ -5,6 +5,7 @@ import Transport.Transport;
 import java.util.Scanner;
 
 public class Automobile extends Transport implements GroundTransport {
+    Scanner sc = new Scanner(System.in);
 
     double price;
     double maxSpeed;
@@ -15,12 +16,12 @@ public class Automobile extends Transport implements GroundTransport {
 
     public void setPrice(double price) {
         System.out.print("Enter price: ");
-        this.price = price;
+        this.price = sc.nextDouble();
     }
 
     public void setMaxSpeed(double maxSpeed) {
         System.out.print("Enter max speed: ");
-        this.maxSpeed = maxSpeed;
+        this.maxSpeed = sc.nextDouble();
     }
 
     @Override

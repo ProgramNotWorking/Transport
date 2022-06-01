@@ -1,10 +1,9 @@
-import Transport.Air.AirTransport;
+import Transport.Air.AirBalloon;
 import Transport.Air.Airplane;
 import Transport.Ground.Automobile;
 import Transport.Ground.BicyclesAndMotorcycles;
 import Transport.Ground.Bus;
 import Transport.Ground.MilitaryEnginery;
-import Transport.Transport;
 
 import java.util.Scanner;
 
@@ -12,15 +11,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        if (inputType().equalsIgnoreCase("Наземный транспорт")) {
+        String groundOrAir = inputType();
 
+        if (groundOrAir.equalsIgnoreCase("Наземный транспорт")) {
+
+            System.out.print("Enter what it specifically: ");
             String transportType = sc.nextLine();
 
-            String type = inputTransportType();
-            String name = inputTransportName();
-            boolean isPublic = inputPublicOrNot();
-
             if (transportType.equalsIgnoreCase("Автомобиль")) {
+
+                String type = inputTransportType();
+                String name = inputTransportName();
+                boolean isPublic = inputPublicOrNot();
 
                 double price = 0;
                 double maxSpeed = 0;
@@ -33,6 +35,10 @@ public class Main {
                 automobile.isExpensive();
 
             } else if (transportType.equalsIgnoreCase("Автобус")) {
+
+                String type = inputTransportType();
+                String name = inputTransportName();
+                boolean isPublic = inputPublicOrNot();
 
                 double fare = 0;
                 int maxPeople = 0;
@@ -48,6 +54,10 @@ public class Main {
 
             } else if (transportType.equalsIgnoreCase("Военная техника")) {
 
+                String type = inputTransportType();
+                String name = inputTransportName();
+                boolean isPublic = inputPublicOrNot();
+
                 String militaryType = "";
 
                 MilitaryEnginery militaryEnginery = new MilitaryEnginery(type, name, isPublic);
@@ -58,6 +68,10 @@ public class Main {
 
             } else if (transportType.equalsIgnoreCase("Мотоцикл")
                     || transportType.equalsIgnoreCase("Велосипед")) {
+
+                String type = inputTransportType();
+                String name = inputTransportName();
+                boolean isPublic = inputPublicOrNot();
 
                 double maxSpeed = 0;
                 double price = 0;
@@ -71,21 +85,43 @@ public class Main {
 
             }
 
-        } else if (inputType().equalsIgnoreCase("Воздушный транспорт")) {
+        } else if (groundOrAir.equalsIgnoreCase("Воздушный транспорт")) {
 
             String transportType = sc.nextLine();
 
-            String type = inputTransportType();
-            String name = inputTransportName();
-            boolean isPublic = inputPublicOrNot();
-
             if (transportType.equalsIgnoreCase("Самолет")) {
+
+                String type = inputTransportType();
+                String name = inputTransportName();
+                boolean isPublic = inputPublicOrNot();
 
                 double maxPeople = 0;
                 boolean isMilitary = false;
 
                 Airplane airplane = new Airplane(type, name, isPublic);
+                airplane.setMaxPeople(maxPeople);
+                airplane.setMilitary(isMilitary);
 
+                airplane.displayInfo();
+                airplane.isMilitary();
+
+            } else if (transportType.equalsIgnoreCase("Воздушный шар")) {
+
+                String type = inputTransportType();
+                String name = inputTransportName();
+                boolean isPublic = inputPublicOrNot();
+
+                double price = 0;
+                int maxPeople = 0;
+                boolean isMilitary = false;
+
+                AirBalloon airBalloon = new AirBalloon(type, name, isPublic);
+                airBalloon.setPrice(price);
+                airBalloon.setMaxPeople(maxPeople);
+                airBalloon.setMilitary(isMilitary);
+
+                airBalloon.displayInfo();
+                airBalloon.isMilitary();
 
             }
 

@@ -2,7 +2,10 @@ package Transport.Ground;
 
 import Transport.Transport;
 
+import java.util.Scanner;
+
 public class MilitaryEnginery extends Transport implements GroundTransport {
+    Scanner sc = new Scanner(System.in);
 
     String militaryType;
 
@@ -12,7 +15,7 @@ public class MilitaryEnginery extends Transport implements GroundTransport {
 
     public void setMilitaryType(String militaryType) {
         System.out.print("Enter type: ");
-        this.militaryType = militaryType;
+        this.militaryType = sc.nextLine();
     }
 
     @Override

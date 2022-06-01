@@ -2,17 +2,36 @@ package Transport.Air;
 
 import Transport.Transport;
 
+import java.util.Scanner;
+
 public class AirBalloon extends Transport implements AirTransport {
+    Scanner sc = new Scanner(System.in);
 
     double price;
     int maxPeople;
     boolean isMilitary;
 
-    public AirBalloon(String type, String name, boolean isPublic, double price, int maxPeople, boolean isMilitary) {
+    public AirBalloon(String type, String name, boolean isPublic) {
         super(type, name, isPublic);
-        this.price = price;
-        this.maxPeople = maxPeople;
-        this.isMilitary = isMilitary;
+    }
+
+    public void setPrice(double price) {
+        System.out.print("Enter price: ");
+        this.price = sc.nextDouble();
+    }
+
+    public void setMaxPeople(int maxPeople) {
+        System.out.print("Enter how much people can ride then: ");
+        this.maxPeople = sc.nextInt();
+    }
+
+    public void setMilitary(boolean isMilitary) {
+        System.out.print("Is that military: ");
+        String military = sc.nextLine();
+        if (military.equalsIgnoreCase("Да"))
+            this.isMilitary = true;
+        else if (military.equalsIgnoreCase("Нет"))
+            this.isMilitary = false;
     }
 
     @Override

@@ -2,7 +2,10 @@ package Transport.Ground;
 
 import Transport.Transport;
 
+import java.util.Scanner;
+
 public class BicyclesAndMotorcycles extends Transport implements GroundTransport {
+    Scanner sc = new Scanner(System.in);
 
     double maxSpeed;
     double price;
@@ -13,12 +16,12 @@ public class BicyclesAndMotorcycles extends Transport implements GroundTransport
 
     public void setMaxSpeed(double maxSpeed) {
         System.out.print("Enter max speed: ");
-        this.maxSpeed = maxSpeed;
+        this.maxSpeed = sc.nextDouble();
     }
 
     public void setPrice(double price) {
         System.out.println("Enter price: ");
-        this.price = price;
+        this.price = sc.nextDouble();
     }
 
     @Override
